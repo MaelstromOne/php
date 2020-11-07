@@ -1,36 +1,6 @@
-<?php
+<?php require_once ($_SERVER['DOCUMENT_ROOT'] . "/templates/header.php"); ?>
 
-require 'include/logins.php';
-require 'include/passwords.php';
-
-$successAuthorization = isset($_POST["login"]) && array_combine($logins, $passwords)[$_POST["login"]] == $_POST["password"];
-
-?>
-
-<!DOCTYPE html>
-<html>
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <link href="styles.css" rel="stylesheet">
-    <title>Project - ведение списков</title>
-</head>
-
-<body>
-
-<div class="header">
-    <div class="logo"><img src="i/logo.png" width="68" height="23" alt="Project"></div>
-    <div class="clearfix"></div>
-</div>
-
-<div class="clear">
-    <ul class="main-menu">
-        <li><a href="#">Главная</a></li>
-        <li><a href="#">О нас</a></li>
-        <li><a href="#">Контакты</a></li>
-        <li><a href="#">Новости</a></li>
-        <li><a href="#">Каталог</a></li>
-    </ul>
-</div>
+<?php showMenu($menuList, "header"); ?>
 
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
     <tr>
@@ -88,17 +58,6 @@ $successAuthorization = isset($_POST["login"]) && array_combine($logins, $passwo
     </tr>
 </table>
 
-<div class="clearfix">
-    <ul class="main-menu bottom">
-        <li><a href="#">Главная</a></li>
-        <li><a href="#">О нас</a></li>
-        <li><a href="#">Контакты</a></li>
-        <li><a href="#">Новости</a></li>
-        <li><a href="#">Каталог</a></li>
-    </ul>
-</div>
+<?php showMenu($menuList, "footer"); ?>
 
-<div class="footer">&copy;&nbsp;<nobr>2018</nobr> Project.</div>
-
-</body>
-</html>
+<?php require_once ($_SERVER['DOCUMENT_ROOT'] . "/templates/footer.php"); ?>
