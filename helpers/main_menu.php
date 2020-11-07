@@ -25,6 +25,11 @@ $menuList = [
         'title' => 'Новости',
         'path' => '/route/news/',
         'sort' => 5,
+    ],
+    [
+        'title' => 'Очень длинное меню',
+        'path' => '/route/long-menu/',
+        'sort' => 6,
     ]
 ];
 
@@ -36,6 +41,7 @@ function showMenu(array $menuList, string $layout = "header")
     $divClass = $layout == "header" ? "clear" : "clearfix";
     $ulClass = $layout == "header" ? "" : "bottom";
     $elementClass = $layout == "header" ? "horizontal-element" : "vertical-element";
+    $route = parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH);
 
 
     return include ($_SERVER['DOCUMENT_ROOT'] . "/templates/main_menu.php");
@@ -52,7 +58,7 @@ function arraySort(array $array, $key = 'sort', $sort = SORT_ASC): array
 
 function cutString($line, $length = 12, $appends = '...'): string
 {
-    return $line < ($length + strlen($appends)) ?? substr($line, 0, $length) . $appends;
+    return mb_strlen($line) < ($length + mb_strlen($appends)) ? $line : mb_substr($line, 0, $length) . $appends;
 }
 
 ?>

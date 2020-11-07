@@ -96,6 +96,10 @@ a:hover {
     font-size: 16px;
 }
 
+.vertical-element.selected-menu, .horizontal-element.selected-menu {
+    text-decoration: underline;
+}
+
 .clearfix::after {
     content: "";
     display: table;
