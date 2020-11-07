@@ -35,6 +35,8 @@ function showMenu(array $menuList, string $layout = "header")
 
     $divClass = $layout == "header" ? "clear" : "clearfix";
     $ulClass = $layout == "header" ? "" : "bottom";
+    $elementClass = $layout == "header" ? "horizontal-element" : "vertical-element";
+
 
     return include ($_SERVER['DOCUMENT_ROOT'] . "/templates/main_menu.php");
 }
