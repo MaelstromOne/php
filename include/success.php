@@ -1,3 +1,3 @@
-<p style="color: green">
+<p class="successAuthorization">
     <?= "Вы успешно авторизованы" ?>
 </p>
