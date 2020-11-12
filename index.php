@@ -2,18 +2,18 @@
 
 error_reporting(E_ALL);
 
-$login = isset($_POST["login"]) ? htmlspecialchars($_POST["login"]) : NULL;
-$password = isset($_POST["password"]) ? htmlspecialchars($_POST["password"]) : NULL;
+$login = isset($_POST["login"]) ? htmlspecialchars($_POST["login"]) : null;
+$password = isset($_POST["password"]) ? htmlspecialchars($_POST["password"]) : null;
 
 function getStatusAuthorization($login, $password) {
     if (isset($_POST["login"]) && isset($_POST["password"])) {
 
-        require_once ($_SERVER['DOCUMENT_ROOT'] . '/include/logins.php');
-        require_once ($_SERVER['DOCUMENT_ROOT'] . '/include/passwords.php');
+        require ($_SERVER['DOCUMENT_ROOT'] . '/include/logins.php');
+        require ($_SERVER['DOCUMENT_ROOT'] . '/include/passwords.php');
 
         $array = array_combine($logins, $passwords);
 
-        return $array[$login] == $password;
+        return isset($array[$login]) && $array[$login] == $password;
     }
     return false;
 }
@@ -73,12 +73,12 @@ $successAuthorization = getStatusAuthorization($login, $password);
                 <?php if ($tryAuthorization): ?>
 
                     <?php if ($successAuthorization): ?>
-                        <?php   require 'include/success.php'; ?>
+                        <?php require ($_SERVER['DOCUMENT_ROOT'] . '/include/success.php'); ?>
                     <?php else: ?>
 
-                        <?php if (isset($login)): ?>
-                            <p class="unsuccessAuthorization"> <?= "Неверный логин или пароль"?></p>
-                        <?php endif; ?>
+                        <?php if (isset($login)) {
+                            require ($_SERVER['DOCUMENT_ROOT'] . '/include/error.php');
+                        } ?>
 
                         <form action="/?login=yes" method="POST">
                             <table width="100%" border="0" cellspacing="0" cellpadding="0">
