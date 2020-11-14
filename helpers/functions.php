@@ -33,7 +33,7 @@ $menuList = [
     ]
 ];
 
-function showMenu(array $menuList, string $layout = "header")
+function showMenu(array $menuList, $layout)
 {
     $menuList = $layout == "header" ? arraySort($menuList,'sort',SORT_ASC)
         : arraySort($menuList,'title', SORT_DESC);
@@ -41,10 +41,8 @@ function showMenu(array $menuList, string $layout = "header")
     $divClass = $layout == "header" ? "clear" : "clearfix";
     $ulClass = $layout == "header" ? "" : "bottom";
     $elementClass = $layout == "header" ? "horizontal-element" : "vertical-element";
-    $route = parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH);
 
-
-    return include ($_SERVER['DOCUMENT_ROOT'] . "/templates/main_menu.php");
+    return require ($_SERVER['DOCUMENT_ROOT'] . "/templates/main_menu.php");
 }
 
 function arraySort(array $array, $key = 'sort', $sort = SORT_ASC): array
@@ -58,7 +56,25 @@ function arraySort(array $array, $key = 'sort', $sort = SORT_ASC): array
 
 function cutString($line, $length = 12, $appends = '...'): string
 {
-    return mb_strlen($line) < ($length + mb_strlen($appends)) ? $line : mb_substr($line, 0, $length) . $appends;
+    return mb_strimwidth($line,0, $length, $appends);
+}
+
+function isCurrentUrl($url)
+{
+    return parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH) == $url;
+}
+
+function getStatusAuthorization($login, $password) {
+    if (isset($_POST["login"]) && isset($_POST["password"])) {
+
+        require ($_SERVER['DOCUMENT_ROOT'] . '/include/logins.php');
+        require ($_SERVER['DOCUMENT_ROOT'] . '/include/passwords.php');
+
+        $array = array_combine($logins, $passwords);
+
+        return isset($array[$login]) && $array[$login] == $password;
+    }
+    return false;
 }
 
 ?>

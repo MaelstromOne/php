@@ -3,7 +3,7 @@
         <?php foreach ($menuList as $element): ?>
             <li>
                 <a href="<?= $element['path'] ?>"
-                   class="<?= $elementClass ?> <?= $element['path'] == $route ? "selected-menu" : "" ?>">
+                   class="<?= $elementClass ?> <?= isCurrentUrl($element['path']) ? "selected-menu" : "" ?>">
                     <?= cutString($element['title']) ?>
                 </a>
             </li>

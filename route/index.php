@@ -1,4 +1,4 @@
-<?php require_once ($_SERVER['DOCUMENT_ROOT'] . "/templates/header.php"); ?>
+<?php require ($_SERVER['DOCUMENT_ROOT'] . "/templates/header.php"); ?>
 
     <table width="100%" border="0" cellspacing="0" cellpadding="0">
         <tr>
@@ -62,4 +62,4 @@
         </tr>
     </table>
 
-<?php require_once ($_SERVER['DOCUMENT_ROOT'] . "/templates/footer.php"); ?>
+<?php require ($_SERVER['DOCUMENT_ROOT'] . "/templates/footer.php"); ?>
