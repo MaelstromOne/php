@@ -1,5 +1,2 @@
-RewriteEngine On
-RewriteRule ^(.*)index\.(php|html?)$ /$1 [R=301,NC,L]
-
 php_value error_reporting -1
 php_value display_errors on

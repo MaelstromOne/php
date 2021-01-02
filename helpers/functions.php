@@ -1,46 +1,22 @@
 <?php
 
-$menuList = [
-    [
-        'title' => 'Главная',
-        'path' => '/',
-        'sort' => 1,
-    ],
-    [
-        'title' => 'О нас',
-        'path' => '/route/about/',
-        'sort' => 2,
-    ],
-    [
-        'title' => 'Каталог',
-        'path' => '/route/catalog/',
-        'sort' => 3,
-    ],
-    [
-        'title' => 'Контакты',
-        'path' => '/route/contacts/',
-        'sort' => 4,
-    ],
-    [
-        'title' => 'Новости',
-        'path' => '/route/news/',
-        'sort' => 5,
-    ],
-    [
-        'title' => 'Очень длинное меню',
-        'path' => '/route/long-menu/',
-        'sort' => 6,
-    ]
-];
+const PAGE_NOT_FOUND = "Страница не найдена.";
 
-function showMenu(array $menuList, $layout)
+function getTitle(array $menuList, $path)
 {
-    $menuList = $layout == "header" ? arraySort($menuList,'sort',SORT_ASC)
-        : arraySort($menuList,'title', SORT_DESC);
+    foreach ($menuList as $item) {
+        if ($item['path'] === $path) {
+            return $item['title'];
+        }
+    }
 
-    $divClass = $layout == "header" ? "clear" : "clearfix";
+    return PAGE_NOT_FOUND;
+}
+
+function showMenu(array $menuList, $layout, $key = 'sort', $sort = SORT_ASC)
+{
+    $menuList = arraySort($menuList, $key, $sort);
     $ulClass = $layout == "header" ? "" : "bottom";
-    $elementClass = $layout == "header" ? "horizontal-element" : "vertical-element";
 
     return require ($_SERVER['DOCUMENT_ROOT'] . "/templates/main_menu.php");
 }
@@ -76,5 +52,3 @@ function getStatusAuthorization($login, $password) {
     }
     return false;
 }
-
-?>
