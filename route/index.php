@@ -1,4 +1,4 @@
-<?php require ($_SERVER['DOCUMENT_ROOT'] . "/templates/header.php"); ?>
+<?php require($_SERVER['DOCUMENT_ROOT'] . "/templates/header.php"); ?>
 
     <td class="right-collum-index">
 
@@ -16,11 +16,11 @@
             <?php if ($tryAuthorization): ?>
 
                 <?php if ($successAuthorization): ?>
-                    <?php require ($_SERVER['DOCUMENT_ROOT'] . '/include/success.php'); ?>
+                    <?php require($_SERVER['DOCUMENT_ROOT'] . '/include/success.php'); ?>
                 <?php else: ?>
 
                     <?php if (isset($login)) {
-                        require ($_SERVER['DOCUMENT_ROOT'] . '/include/error.php');
+                        require($_SERVER['DOCUMENT_ROOT'] . '/include/error.php');
                     } ?>
 
                     <form action="/?login=yes" method="POST">
@@ -28,13 +28,14 @@
                             <tr>
                                 <td class="iat">
                                     <label for="login_id">Ваш e-mail:</label>
-                                    <input id="login_id" size="30" name="login" value="<?=$login ?? ""?>">
+                                    <input id="login_id" size="30" name="login" value="<?= $login ?? "" ?>">
                                 </td>
                             </tr>
                             <tr>
                                 <td class="iat">
                                     <label for="password_id">Ваш пароль:</label>
-                                    <input id="password_id" size="30" name="password" value="<?=$password ?? ""?>" type="password">
+                                    <input id="password_id" size="30" name="password" value="<?= $password ?? "" ?>"
+                                           type="password">
                                 </td>
                             </tr>
                             <tr>
@@ -50,4 +51,4 @@
 
     </td>
 
-<?php require ($_SERVER['DOCUMENT_ROOT'] . "/templates/footer.php"); ?>
+<?php require($_SERVER['DOCUMENT_ROOT'] . "/templates/footer.php"); ?>

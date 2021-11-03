@@ -1,7 +1,7 @@
 <?php
 
 $passwords = [
-    "password1",
-    "password2",
-    "password3",
+    "test",
+    "test2",
+    "test3",
 ];

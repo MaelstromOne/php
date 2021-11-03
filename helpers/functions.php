@@ -18,7 +18,7 @@ function showMenu(array $menuList, $layout, $key = 'sort', $sort = SORT_ASC)
     $menuList = arraySort($menuList, $key, $sort);
     $ulClass = $layout == "header" ? "" : "bottom";
 
-    return require ($_SERVER['DOCUMENT_ROOT'] . "/templates/main_menu.php");
+    require ($_SERVER['DOCUMENT_ROOT'] . "/templates/main_menu.php");
 }
 
 function arraySort(array $array, $key = 'sort', $sort = SORT_ASC): array
