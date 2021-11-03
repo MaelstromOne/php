@@ -1,12 +1,6 @@
 <?php
 
-require($_SERVER['DOCUMENT_ROOT'] . "/helpers/functions.php");
-require($_SERVER['DOCUMENT_ROOT'] . "/helpers/data.php");
-
-$login = isset($_POST["login"]) ? htmlspecialchars($_POST["login"]) : null;
-$password = isset($_POST["password"]) ? htmlspecialchars($_POST["password"]) : null;
-$tryAuthorization = isset($_GET['login']) && $_GET['login'] == "yes";
-$successAuthorization = getStatusAuthorization($login, $password);
+require($_SERVER['DOCUMENT_ROOT'] . "/helpers/session.php");
 
 ?>
 <!DOCTYPE html>

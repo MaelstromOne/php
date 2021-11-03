@@ -40,7 +40,7 @@ function isCurrentUrl($url)
     return parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH) == $url;
 }
 
-function getStatusAuthorization($login, $password) {
+function auth($login, $password) {
     if (isset($_POST["login"]) && isset($_POST["password"])) {
 
         require ($_SERVER['DOCUMENT_ROOT'] . '/include/logins.php');
