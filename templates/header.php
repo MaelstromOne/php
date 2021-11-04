@@ -1,6 +1,9 @@
 <?php
 
-require($_SERVER['DOCUMENT_ROOT'] . "/helpers/session.php");
+require $_SERVER['DOCUMENT_ROOT'] . "/data/logins_passwords.php";
+require $_SERVER['DOCUMENT_ROOT'] . "/data/menu_list.php";
+require $_SERVER['DOCUMENT_ROOT'] . "/helpers/functions.php";
+require $_SERVER['DOCUMENT_ROOT'] . "/helpers/session_cookie.php";
 
 ?>
 <!DOCTYPE html>

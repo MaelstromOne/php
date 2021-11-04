@@ -1,5 +1,4 @@
 <?php
-
 $menuList = [
     [
         'title' => 'Главная',

@@ -1,3 +1,4 @@
-<?php require($_SERVER['DOCUMENT_ROOT'] . "/templates/header.php"); ?>
-<?php require($_SERVER['DOCUMENT_ROOT'] . "/templates/main.php"); ?>
-<?php require($_SERVER['DOCUMENT_ROOT'] . "/templates/footer.php"); ?>
+<?php
+require $_SERVER['DOCUMENT_ROOT'] . "/templates/header.php";
+require $_SERVER['DOCUMENT_ROOT'] . "/templates/main.php";
+require $_SERVER['DOCUMENT_ROOT'] . "/templates/footer.php";
