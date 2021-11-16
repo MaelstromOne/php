@@ -10,10 +10,12 @@ $successAuthorization = auth($login, $password);
 setcookie("login", $login, time() + COOKIE_LIFE_TIME, "/");
 
 $authorized = isset($_SESSION['login']);
-$route = strtok($_SERVER["REQUEST_URI"],'?');
-$isRootRoute = !strcmp($route,"/");
 
-if (!$authorized && !$isRootRoute) {
+if (!$authorized && getRoute() == '/route/profile/') {
+    header("Location: /?login=yes");
+    die();
+}
+else if (!$authorized && getRoute() != '/') {
     header("Location: /");
     die();
 }

@@ -29,5 +29,10 @@ $menuList = [
         'title' => 'Очень длинное меню',
         'path' => '/route/long-menu/',
         'sort' => 6,
+    ],
+    [
+        'title' => 'Профиль',
+        'path' => '/route/profile/',
+        'sort' => 6,
     ]
 ];

@@ -54,3 +54,8 @@ function auth($login, $password): bool
     }
     return false;
 }
+
+function getRoute()
+{
+    return strtok($_SERVER["REQUEST_URI"],'?');
+}

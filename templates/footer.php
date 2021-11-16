@@ -1,6 +1,3 @@
-</tr>
-</table>
-
 <div class="clearfix">
     <?php showMenu($menuList, "footer", 'title', SORT_DESC); ?>
 </div>
