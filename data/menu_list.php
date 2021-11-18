@@ -34,5 +34,10 @@ $menuList = [
         'title' => 'Профиль',
         'path' => '/route/profile/',
         'sort' => 6,
+    ],
+    [
+        'title' => 'Сообщения',
+        'path' => '/posts/',
+        'sort' => 6,
     ]
 ];

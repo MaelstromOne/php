@@ -48,7 +48,7 @@ CREATE TABLE `group_user` (
 
 LOCK TABLES `group_user` WRITE;
 /*!40000 ALTER TABLE `group_user` DISABLE KEYS */;
-INSERT INTO `group_user` VALUES (1,1,1),(2,1,2),(3,2,3),(4,2,4);
+INSERT INTO `group_user` VALUES (1,2,1),(2,2,2),(3,1,3),(4,1,4);
 /*!40000 ALTER TABLE `group_user` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -73,7 +73,7 @@ CREATE TABLE `groups` (
 
 LOCK TABLES `groups` WRITE;
 /*!40000 ALTER TABLE `groups` DISABLE KEYS */;
-INSERT INTO `groups` VALUES (1,'Зарегистрированный пользователь',NULL),(2,'Пользователь','пользователь, имеющий право писать сообщения');
+INSERT INTO `groups` VALUES (1,'registered','Зарегистрированный пользователь'),(2,'can_write','Пользователь, имеющий право писать сообщения');
 /*!40000 ALTER TABLE `groups` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -100,7 +100,7 @@ CREATE TABLE `messages` (
   CONSTRAINT `section_id` FOREIGN KEY (`section_id`) REFERENCES `sections` (`id`),
   CONSTRAINT `user_receiver_id` FOREIGN KEY (`user_receiver_id`) REFERENCES `users` (`id`),
   CONSTRAINT `user_sender_id` FOREIGN KEY (`user_sender_id`) REFERENCES `users` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -109,6 +109,7 @@ CREATE TABLE `messages` (
 
 LOCK TABLES `messages` WRITE;
 /*!40000 ALTER TABLE `messages` DISABLE KEYS */;
+INSERT INTO `messages` VALUES (1,'Личное сообщение','Привет','2021-11-18 18:19:27',2,1,1,5),(2,'Личное сообщение','Как дела?','2021-11-18 18:19:51',2,1,0,5),(3,'Вопрос по магазину','Продается ли ...','2021-11-18 18:21:15',2,1,0,6),(4,'Вопрос по работе','Сделали ли ...','2021-11-18 18:21:15',1,2,0,4);
 /*!40000 ALTER TABLE `messages` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -180,4 +181,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-11-16 17:41:44
+-- Dump completed on 2021-11-18 21:39:11

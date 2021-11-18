@@ -122,6 +122,12 @@ a:hover {
 }
 
 .left-collum-index h2 {
+    font-size: 1.3em;
+    color: #000000;
+    margin: 0 0 10px 0;
+}
+
+.left-collum-index h3 {
     font-size: 1.2em;
     color: #000000;
     margin: 0 0 10px 0;

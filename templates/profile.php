@@ -6,5 +6,5 @@
 <p><?= $user['phone'] ?></p>
 <h2>Группы:</h2>
 <?php foreach ($groups as $group): ?>
-    <p><?= $group['name'] ?></p>
+    <p><?= $group['description'] ?></p>
 <?php endforeach;

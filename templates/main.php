@@ -9,6 +9,12 @@
             <h1><?= getTitle($menuList, parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH)) ?></h1>
             <?php if (getRoute() == '/route/profile/') : ?>
                 <?php getProfile() ?>
+            <?php elseif (getRoute() == '/posts/') : ?>
+                <?php getPosts(); ?>
+            <?php elseif (getRoute() == '/posts/add/') : ?>
+                <?php getPostAdd(); ?>
+            <?php elseif (getRoute() == '/posts/details.php') : ?>
+                <?php getMessage(); ?>
             <?php else : ?>
                 <p>Вести свои личные списки, например покупки в магазине, цели, задачи и многое другое. Делится списками
                     с друзьями и просматривать списки друзей.</p>
